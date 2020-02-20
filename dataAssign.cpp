@@ -56,7 +56,7 @@ struct node{
 }*head,*temp;
 
 public class Algo{
-
+ //can become friend with book class, so that algo class can set book class
 };
 int main(){
 	int create;
