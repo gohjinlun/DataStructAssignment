@@ -59,6 +59,7 @@ public class Algo{
  //can become friend with book class, so that algo class can set book class
 };
 int main(){
+	int choice;
 	int create;
 	string title,author,category;
 	int pYear;
@@ -95,6 +96,28 @@ int main(){
 //		use outer,single function
 	}
 	//after creating all books , ask user for next action
+	cout<<"What do you want to do next? 1=Edit,2=Delete,3=Display,4=Add,5=Sorting,6=Searching";
+	cin>>choice;
+	switch (choice){
+		case 1:
+			//call function Edit
+			break;
+		case 2:
+			//call function Delete
+			break;
+		case 3:
+			//call function Display
+			break;
+		case 4: 
+			//call function Add
+			break;
+		case 5:
+			//call function Sorting
+			break;
+		case 6:
+			//call function Searching
+			break;
+	}
 	//edit/delete/display,add
 	//sorting,searching
 	//hashing don't need ,since we don't have data need to hash
