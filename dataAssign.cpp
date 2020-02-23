@@ -112,9 +112,6 @@ int main(){
 			//call function Add
 			break;
 		case 5:
-			//call function Sorting
-			break;
-		case 6:
 			//call function Searching
 			break;
 	}
