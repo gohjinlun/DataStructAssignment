@@ -240,22 +240,24 @@ class Algo{
 		}	
 	}
 	void sort(){
-	i=0;
-        while(i<create){
-            //reset the nodes point to the head
-            prev = temp = head;
-            if(head->next)
-			{
-                temp=head;
-                head = head->next;
-                temp->next=head->next;
-                head->next=temp;
-                prev=head;
-            }
-            else if(head==temp){
-                temp=temp->next;
-            }
-}
+	int i =0;
+	node *next;
+	temp=prev=head;
+	next=temp->next; 
+	int sorted;
+	while((temp!=NULL) && (sorted==0)){
+			sorted=1;
+			if(temp->B->getPublishYear()<next->B->getPublishYear()||temp->B->getPublishYear()==next->B->getPublishYear()){
+			 temp=head;
+               		 head = head->next;
+                	 temp->next=head->next;
+               		 head->next=temp;
+               		 prev=head;//if the temp data is less than next data or equal to,move on
+			}
+			else{
+				temp=temp->next;//or use else 
+				//sort the data
+			}
 };
 
 
