@@ -240,13 +240,12 @@ class Algo{
 		}	
 	}
 	void sort(){
-	j=0;
-        while(j<create){
+	i=0;
+        while(i<create){
             //reset the nodes point to the head
             prev = temp = head;
-			bool found =0;
-            //for the head
-            if(head->B->publishYear){
+            if(head->next)
+			{
                 temp=head;
                 head = head->next;
                 temp->next=head->next;
@@ -254,7 +253,7 @@ class Algo{
                 prev=head;
             }
             else if(head==temp){
-                temp=temp->next->tail;
+                temp=temp->next;
             }
 }
 };
