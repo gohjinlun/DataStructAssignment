@@ -43,6 +43,7 @@ using namespace std;
 		cout<<"Book Publishing Year : "<<publishYear<<endl;	
 		cout<<"----------------------------------------"<<endl;
  }
+
 friend class Algo;	
 	
 };
@@ -53,14 +54,18 @@ struct node{
 };
 
 class Algo{
-	node *head,*temp;
+	//added two pointers
+	node *head,*temp,*prev,*tail;
 	int choice,create;
 	string title,author,category;
 	int pYear;
 	public :
 	Algo(){
-		cout<<"Hello"<<endl;
+		cout<<"-------WELCOME TO YOUR BOOKS MANAGEMENT SYSTEM-------";
 		creating();
+	}
+	~Algo(){
+		cout<<"\nThank You For Using our System ! :)";
 	}
 	void creating(){
 		cout<<"\nHow many Books do you want to create in your library?";
@@ -92,13 +97,14 @@ class Algo{
 	}
 	
 	void action(){
+	do{
+	
 		cout<<"\nWhat do you want to do next? \n [ 1=Display,2=Add,3=Edit,4=Delete,5=Searching,0=Exit the program ]";
 		cin>>choice;
 		switch (choice){
 		case 1:
-			cout<<"dis" ;
+			cout<<"dis";
 			display();
-		///	A.Display();
 			break;
 		case 2:
 			//call function add
@@ -107,20 +113,17 @@ class Algo{
 			//call function edit optional
 			break;
 		case 4: 
-			//call function delete optional
-			//inside delete func, call display(brief one)
-			//then ask user to key in which book to delete,store it inside a int var;
-			//then we loop through the linked list ,i++ after going to another node,
-			//stop when i=var ,then delete that node
+			//call function delete 
+			deleteNode();
 			break;
 		case 5:
-		
-			//call function Searching
+			search();
 			break;
 		case 0:
 			//exit the program ,call destructor ,thank you etc
 			break;
 	}
+		}while(choice!=0);
 }
 	void firstNode(){
 		cout<<"first";
@@ -136,6 +139,7 @@ class Algo{
 		temp= temp->next;
 		temp->B= new book(title,author,category,pYear);
 		temp->next=NULL;
+		tail=temp;
 	}
 	void display(){
 		//to display each nodes
@@ -146,10 +150,56 @@ class Algo{
 		}
 	}
 	
-	
-	
+	void deleteNode(){
+		temp=head;
+		int i =1,del;
+		
+		//displaying the list of books first;
+		cout<<"----------------------------------------"<<endl;
+		cout<<"\nList of books in library:"<<endl;
+		while(temp!=NULL){	
+			cout<<"Book "<<i<<endl;
+			cout<<"Title : "<<temp->B->getTitle()<<endl;
+			temp=temp->next;
+			i++;
+			
+		}
+		//ask user which book to delete;
+		cout<<"\n----------------------------------------"<<endl;
+		cout<<"Which book you want to delete (enter num)";
+		cin>>del;
+		
+		i=1;
+		temp=head;
+		if(del==1){
+			//delete the first node
+			head=head->next;
+			temp->next=NULL;
+			delete temp;
+			cout<<"\nBook "<<del<<" delete successfully";
+		}
+		else {
+		//search and delete that node
+			while ( (temp!=NULL) &&(i!=del) ){
+				//search for the node to delete
+				prev=temp;
+				temp=temp->next;
+				i++;
+			};
+			if( (temp!=NULL) && (i==del) ){
+				prev->next = temp->next;
+				delete temp;
+				cout<<"\nBook "<<del<<" delete successfully";
+			}else {
+				cout<<"book number not found";
+			}
+		}
+	}
+
+
 };
 int main(){
 	Algo A;
 	
+	return 0;
 }
