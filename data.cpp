@@ -149,6 +149,28 @@ class Algo{
 			temp=temp->next;
 		}
 	}
+	void add(){	
+		cout<<"Book details that you want to add"<<endl;
+		cout<<"----------------------------------------"<<endl;
+		fflush(stdin);
+		cout<<"Title:"<<endl;
+		getline(cin,title);
+		fflush(stdin);
+		cout<<"Author of "<<title<<" : "<<endl;
+		getline(cin,author);
+		fflush(stdin);
+		cout<<"Category of "<<title<<" : "<<endl;
+		getline(cin,category);
+		cout<<"Publishing Year of "<<title<<" : "<<endl;
+		cin>>pYear;
+		fflush(stdin);
+		temp=tail;
+		temp->next= new node;
+		temp=temp->next;
+		temp->B= new book(title,author,category,pYear);
+	        temp->next=NULL;
+	        tail=temp;
+	}
 	
 	void deleteNode(){
 		temp=head;
