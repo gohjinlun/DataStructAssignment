@@ -65,7 +65,7 @@ struct node{
 	node *next;
 }*head,*temp;
 
-public class Algo{uyiyetf9;
+public class Algo{
 		 
 	
 	Algo(){
@@ -124,10 +124,10 @@ int main(){
 		//create each book object
 		book B(title,author,category,pYear); 
 		temp = last;
-        last = new node;
-        last->next=NULL;
-        temp->next=last;
-        temp = last;
+       		last = new node;
+        	last->next=NULL;
+        	temp->next=last;
+        	temp = last;
 		//then create node to store each books , linked list
 //		if book =first book i=0;
 
