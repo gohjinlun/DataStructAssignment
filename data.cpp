@@ -56,7 +56,7 @@ struct node{
 class Algo{
 	//added two pointers
 	node *head,*temp,*prev,*tail;
-	int choice,create;
+	int choice,create,searchY;
 	string title,author,category;
 	int pYear;
 	public :
@@ -108,6 +108,7 @@ class Algo{
 			break;
 		case 2:
 			//call function add
+			add();
 			break;
 		case 3:
 			//call function edit optional
@@ -148,28 +149,6 @@ class Algo{
 			temp->B->display();
 			temp=temp->next;
 		}
-	}
-	void add(){	
-		cout<<"Book details that you want to add"<<endl;
-		cout<<"----------------------------------------"<<endl;
-		fflush(stdin);
-		cout<<"Title:"<<endl;
-		getline(cin,title);
-		fflush(stdin);
-		cout<<"Author of "<<title<<" : "<<endl;
-		getline(cin,author);
-		fflush(stdin);
-		cout<<"Category of "<<title<<" : "<<endl;
-		getline(cin,category);
-		cout<<"Publishing Year of "<<title<<" : "<<endl;
-		cin>>pYear;
-		fflush(stdin);
-		temp=tail;
-		temp->next= new node;
-		temp=temp->next;
-		temp->B= new book(title,author,category,pYear);
-	        temp->next=NULL;
-	        tail=temp;
 	}
 	
 	void deleteNode(){
@@ -218,8 +197,50 @@ class Algo{
 		}
 	}
 
-
+	void add(){	
+			cout<<"Book details that you want to add"<<endl;
+			cout<<"----------------------------------------"<<endl;
+			fflush(stdin);
+			cout<<"Title:"<<endl;
+			getline(cin,title);
+			fflush(stdin);
+			cout<<"Author of "<<title<<" : "<<endl;
+			getline(cin,author);
+			fflush(stdin);
+			cout<<"Category of "<<title<<" : "<<endl;
+			getline(cin,category);
+			cout<<"Publishing Year of "<<title<<" : "<<endl;
+			cin>>pYear;
+			fflush(stdin);
+			temp=tail;
+			temp->next= new node;
+			temp=temp->next;
+			temp->B= new book(title,author,category,pYear);
+		    temp->next=NULL;
+		    tail=temp;
+		}
+	void search(){
+		cout<<"Enter the publishing Year of the book you want to search :";
+		cin>>searchY;
+		bool found =0;
+		int i=1;
+		temp=head;
+		while((temp!=NULL)&&(temp->B->getPublishYear()<=searchY ) ){
+				if((temp->B->getPublishYear()==searchY)) {
+					temp->B->display();
+					found =1;
+				}
+				temp=temp->next;
+				i++;
+		};
+		if(found ==0){
+			cout<<"\nThere isn't any books published on year "<<searchY<<" in your library.\nPlease try again."<<endl;
+		}
+		
+	}
 };
+
+
 int main(){
 	Algo A;
 	
