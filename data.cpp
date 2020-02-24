@@ -66,9 +66,10 @@ class Algo{
 	}
 	~Algo(){
 		cout<<"\nThank You For Using our System ! :)";
+		cout<<"-------BOOKS MANAGEMENT SYSTEM-------";
 	}
 	void creating(){
-		cout<<"\nHow many Books do you want to create in your library?";
+		cout<<"\nHow many Books do you want to insert to your library?";
 		cin>>create;
 			for (int i=0;i<create;i++){	
 				cout<<"Book "<<i+1<<endl;
@@ -99,7 +100,7 @@ class Algo{
 	void action(){
 	do{
 	
-		cout<<"\nWhat do you want to do next? \n [ 1=Display,2=Add,3=Edit,4=Delete,5=Searching,0=Exit the program ]";
+		cout<<"\n\nWhat do you want to do next? \n\n[ 1=Display , 2=Add , 3=Delete , 4=Search , 0=Exit the program ]";
 		cin>>choice;
 		switch (choice){
 		case 1:
@@ -110,18 +111,19 @@ class Algo{
 			//call function add
 			add();
 			break;
-		case 3:
-			//call function edit optional
-			break;
-		case 4: 
+		case 3: 
 			//call function delete 
 			deleteNode();
 			break;
-		case 5:
+		case 4:
+			//call function search
 			search();
 			break;
 		case 0:
 			//exit the program ,call destructor ,thank you etc
+			break;
+		default:
+			cout<<"Invalid choice , try again."<<endl;
 			break;
 	}
 		}while(choice!=0);
@@ -198,7 +200,7 @@ class Algo{
 	}
 
 	void add(){	
-			cout<<"Book details that you want to add"<<endl;
+			cout<<"Book details that you want to add : "<<endl;
 			cout<<"----------------------------------------"<<endl;
 			fflush(stdin);
 			cout<<"Title:"<<endl;
