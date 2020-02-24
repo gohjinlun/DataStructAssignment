@@ -66,7 +66,6 @@ struct node{
 }*head,*temp;
 
 public class Algo{
-	
 	Algo(){
 		cout<<"-------WELCOME TO YOUR BOOKS LIBRARY-------";
 		
@@ -127,6 +126,7 @@ int main(){
         last->next=NULL;
         temp->next=last;
         temp = last;
+        abcdefds
 		//then create node to store each books , linked list
 //		if book =first book i=0;
 
