@@ -237,9 +237,26 @@ class Algo{
 		};
 		if(found ==0){
 			cout<<"\nThere isn't any books published on year "<<searchY<<" in your library.\nPlease try again."<<endl;
-		}
-		
+		}	
 	}
+	void sort(){
+	j=0;
+        while(j<create){
+            //reset the nodes point to the head
+            prev = temp = head;
+			bool found =0;
+            //for the head
+            if(head->B->publishYear){
+                temp=head;
+                head = head->next;
+                temp->next=head->next;
+                head->next=temp;
+                prev=head;
+            }
+            else if(head==temp){
+                temp=temp->next->tail;
+            }
+}
 };
 
 
